@@ -5,25 +5,34 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      name: "nguyen minh chuc"
+      btnToggle: true
     }
-    console.log("one")
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
-    console.log("three")
+  handleClick() {
+    this.setState(state => (
+      {
+        btnToggle: !state.btnToggle
+      }
+    ));
   }
 
-  componentWillUnmount() {
-    console.log("four")
+  deleteRow = (name) => {
+    console.log(name);
   }
 
   render () {
-    console.log("render two")
     return (
       <React.Fragment>
         <Welcome nation="Viet Nam!" />
         <Welcome nation="Viet Nam!" />
+        <button onClick={this.handleClick}>
+            {this.state.btnToggle ? "on" : "off"}
+        </button>
+        {/* Passing Arguments to Event Handlers */}
+        <button onClick={this.deleteRow.bind(this, "nguyen minh chuc")}>
+          Delete Row</button>
       </React.Fragment>
     );
   }
