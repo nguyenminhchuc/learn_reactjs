@@ -2,7 +2,24 @@ import React from "react"
 import PropTypes from "prop-types"
 class App extends React.Component {
 
+  constructor(props){
+    super(props)
+    this.state = {
+      name: "nguyen minh chuc"
+    }
+    console.log("one")
+  }
+
+  componentDidMount() {
+    console.log("three")
+  }
+
+  componentWillUnmount() {
+    console.log("four")
+  }
+
   render () {
+    console.log("render two")
     return (
       <React.Fragment>
         <Welcome nation="Viet Nam!" />
